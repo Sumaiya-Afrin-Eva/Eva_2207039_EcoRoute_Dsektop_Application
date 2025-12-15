@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2000.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <AnchorPane prefHeight="2172.0" prefWidth="1400.0" stylesheets="@user_view.css">
+            <children>
+                <ImageView fitHeight="2028.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-21.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="0.0">
+                    <image>
+                        <Image url="@ThirdImage.png" />
+                    </image>
+                </ImageView>
+                <VBox layoutX="89.0" layoutY="373.0" prefHeight="368.0" prefWidth="186.0" AnchorPane.bottomAnchor="1431.0" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="1174.0" AnchorPane.topAnchor="373.0">
+                    <children>
+                        <Button fx:id="info" mnemonicParsing="false" prefHeight="42.0" prefWidth="186.0" styleClass="sidebar-button" text="Info">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="home" mnemonicParsing="false" onAction="#goHome" prefHeight="42.0" prefWidth="186.0" styleClass="sidebar-button" text="Home">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="history" mnemonicParsing="false" prefHeight="42.0" prefWidth="196.0" styleClass="sidebar-button" text="History">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                        <ComboBox fx:id="profile" prefHeight="42.0" prefWidth="186.0" promptText="Profile" styleClass="sidebar-button" visibleRowCount="20">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </ComboBox>
+                    </children>
+                </VBox>
+                <ImageView fx:id="profileImage" fitHeight="190.0" fitWidth="183.0" layoutX="99.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1889.0" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="1168.0" AnchorPane.topAnchor="90.0" />
+                <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="296.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1846.0" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="1035.0" AnchorPane.topAnchor="91.0">
+                    <image>
+                        <Image url="@logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="366.0" layoutY="100.0" prefHeight="37.0" prefWidth="192.0" text="Eco-Route" textFill="#2323ff" AnchorPane.bottomAnchor="2026.0" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="887.0" AnchorPane.topAnchor="107.0">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Label>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="1562.0" layoutX="298.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" width="5.0" AnchorPane.bottomAnchor="299.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="1131.0" AnchorPane.topAnchor="311.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="5.0" layoutX="379.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" AnchorPane.leftAnchor="100.0" />
+                <VBox layoutX="364.0" layoutY="386.0" prefHeight="151.0" prefWidth="270.0" styleClass="input-box" AnchorPane.bottomAnchor="1635.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="793.0" AnchorPane.topAnchor="386.0">
+                    <children>
+                        <Label text="Origin">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="origin" prefHeight="40.0" prefWidth="151.0">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="0.3" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                    </children></VBox>
+                <VBox layoutX="603.0" layoutY="401.0" prefHeight="150.0" prefWidth="270.0" styleClass="input-box" AnchorPane.bottomAnchor="1636.0" AnchorPane.leftAnchor="700.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="386.0">
+                    <children>
+                        <Label text="Destination">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="destination" prefHeight="40.0" prefWidth="151.0">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="0.3" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                    </children></VBox>
+                <VBox layoutX="300.0" layoutY="162.0" prefHeight="110.0" prefWidth="554.0" AnchorPane.bottomAnchor="1898.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="595.0" AnchorPane.topAnchor="162.0">
+                    <children>
+                        <Label text="Welcome to Eco-Route Planner!" textFill="#7b15ff">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <Label text="You are one step away from discovering  ">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <Label text="your best route.">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <HBox layoutX="386.0" layoutY="583.0" prefHeight="56.0" prefWidth="881.0" AnchorPane.bottomAnchor="1533.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="583.0">
+                    <children>
+                        <Label text="Car">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                        <ImageView fx:id="car" fitHeight="43.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@car.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <Label text="Bike">
+                            <HBox.margin>
+                                <Insets left="50.0" top="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="bike" fitHeight="53.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bike.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <Label text="Bus">
+                            <HBox.margin>
+                                <Insets left="50.0" top="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="bus" fitHeight="55.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bus.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <Label text="Walk">
+                            <HBox.margin>
+                                <Insets left="50.0" top="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="walk" fitHeight="56.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@walk.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <WebView fx:id="web" layoutX="384.0" layoutY="642.0" prefHeight="694.0" prefWidth="883.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="642.0" />
+                <VBox layoutX="443.0" layoutY="1360.0" prefHeight="276.0" prefWidth="884.0" styleClass="input-box" AnchorPane.bottomAnchor="536.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="1360.0">
+                    <children>
+                        <HBox prefHeight="50.0" prefWidth="814.0">
+                            <children>
+                                <Label fx:id="companyName" text="Company">
+                                    <font>
+                                        <Font name="System Bold" size="21.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="35.0" prefWidth="814.0">
+                            <children>
+                                <Label text="Distance :">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="distance" text="Label">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="814.0">
+                            <children>
+                                <Label text="Time : ">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="time" text="Label">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="32.0" prefWidth="814.0">
+                            <children>
+                                <Label text="Fuel : ">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="fuel" text="Label">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="33.0" prefWidth="814.0">
+                            <children>
+                                <Label text="Eco Score : ">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="eco_score" text="Label">
+                                    <HBox.margin>
+                                        <Insets left="15.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="814.0">
+                            <children>
+                                <Label text="Cost : ">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="cost" text="Label">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1228.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1883.0" AnchorPane.leftAnchor="1245.0" AnchorPane.rightAnchor="152.0" AnchorPane.topAnchor="60.0">
+                    <image>
+                        <Image url="@notification.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="1037.0" layoutY="419.0" mnemonicParsing="false" onAction="#findRoutes" styleClass="search-box" text="Search" AnchorPane.bottomAnchor="1678.0" AnchorPane.leftAnchor="1037.0" AnchorPane.rightAnchor="292.5" AnchorPane.topAnchor="430.0">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>
