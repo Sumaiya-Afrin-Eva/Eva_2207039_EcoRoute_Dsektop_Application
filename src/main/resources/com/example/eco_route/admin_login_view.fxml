@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="rootPane" fitToWidth="true" pannable="true" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <AnchorPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1400.0" prefWidth="1400.0" stylesheets="@admin_login_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <ImageView fitHeight="1406.0" fitWidth="1404.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+                    <image>
+                        <Image url="@SecondImage.png" />
+                    </image>
+                </ImageView>
+                <HBox layoutX="67.0" layoutY="-1.0" prefHeight="134.0" prefWidth="1335.0" AnchorPane.bottomAnchor="1267.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0">
+                    <children>
+                        <Label prefHeight="85.0" prefWidth="91.0" text="Route " textFill="#0015ff">
+                            <font>
+                                <Font name="American Typewriter Semibold" size="28.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="50.0" top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="85.0" prefWidth="105.0" styleClass="partnerLabel" text="Partner">
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Baloo Bhai 2 ExtraBold" size="28.0" />
+                            </font>
+                        </Label>
+                        <Pane prefHeight="134.0" prefWidth="651.0" />
+                        <HBox prefHeight="134.0" prefWidth="407.0" spacing="5.0">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="115.0" styleClass="lan-btn" text="EN">
+                                    <HBox.margin>
+                                        <Insets left="80.0" top="33.0" />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@globe.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="loginLabel" mnemonicParsing="false" prefHeight="58.0" prefWidth="102.0" styleClass="login-btn" text="Login">
+                                    <HBox.margin>
+                                        <Insets left="45.0" top="33.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+                </HBox>
+                <Label layoutX="173.0" layoutY="138.0" prefHeight="63.0" prefWidth="452.0" text="Register your business with us!  " AnchorPane.bottomAnchor="1199.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="775.0" AnchorPane.topAnchor="138.0">
+                    <font>
+                        <Font name="System Bold" size="34.0" />
+                    </font>
+                </Label>
+                <Label layoutX="230.0" layoutY="205.0" prefHeight="42.0" prefWidth="507.0" text="Sign up easily, showcase your menu, and you" AnchorPane.bottomAnchor="1143.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="720.0" AnchorPane.topAnchor="215.0">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                </Label>
+                <Label layoutX="270.0" layoutY="251.0" prefHeight="50.0" prefWidth="466.0" text="can start reaching new customers " AnchorPane.bottomAnchor="1099.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="761.0" AnchorPane.topAnchor="251.0">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                </Label>
+                <HBox layoutX="171.0" layoutY="346.0" prefHeight="719.0" prefWidth="510.0" styleClass="infoBg" AnchorPane.bottomAnchor="335.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="719.0" AnchorPane.topAnchor="330.0">
+                    <children>
+                        <Pane prefHeight="719.0" prefWidth="53.0" />
+                        <VBox prefHeight="552.0" prefWidth="404.0">
+                            <children>
+                                <Label prefHeight="48.0" prefWidth="409.0" text="Ready to boost your business?">
+                                    <font>
+                                        <Font name="System Bold" size="25.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="businessName" prefHeight="52.0" prefWidth="404.0" promptText="Your Business Name*" styleClass="inputButton">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="ownerName" prefHeight="52.0" prefWidth="404.0" promptText="Business Owner's Name*" styleClass="inputButton">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="vehicleType" prefHeight="52.0" prefWidth="404.0" promptText="Vehicle Type*" styleClass="inputButton">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="businessEmail" prefHeight="52.0" prefWidth="404.0" promptText="Business Email*" styleClass="inputButton">
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="phoneNumber" prefHeight="52.0" prefWidth="404.0" promptText="Phone Number*" styleClass="inputButton">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="52.0" prefWidth="404.0" styleClass="regButton" text="Register" textFill="WHITE">
+                                    <VBox.margin>
+                                        <Insets top="40.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Button>
+                                <HBox prefHeight="21.0" prefWidth="404.0">
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <Label text="Already have an account?">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Login" textFill="#024ae4" underline="true">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="6.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="21.0" prefWidth="404.0">
+                                    <children>
+                                        <Label text="By continuing, you have read and agree to our ">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Label text="Terms of Service" textFill="#024ae4" underline="true">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="1.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="25.0" prefWidth="404.0">
+                                    <children>
+                                        <Label text="and">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Privacy Policy." textFill="#024ae4" underline="true">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="4.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <ImageView fx:id="backHome" fitHeight="51.0" fitWidth="41.0" layoutX="20.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1349.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="1359.0" AnchorPane.topAnchor="15.0">
+                    <image>
+                        <Image url="@back_arrow.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>
