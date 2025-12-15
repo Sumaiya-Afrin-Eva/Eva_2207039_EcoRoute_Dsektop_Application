@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="500.0" styleClass="loginButton" stylesheets="@code_verification_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fx:id="backHome" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
+            <image>
+                <Image url="@back_arrow.png" />
+            </image>
+        </ImageView>
+        <HBox prefHeight="61.0" prefWidth="506.0" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
+            <children>
+                <HBox prefHeight="61.0" prefWidth="272.0">
+                    <children>
+                        <Pane prefHeight="61.0" prefWidth="193.0" />
+                        <ImageView fitHeight="57.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@logo.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets top="4.0" />
+                            </HBox.margin>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox prefHeight="61.0" prefWidth="320.0">
+                    <children>
+                        <Label text="Eco-Route" textFill="#081775">
+                            <font>
+                                <Font name="Brush Script MT Italic" size="30.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </HBox>
+            </children>
+        </HBox>
+        <Label prefHeight="75.0" prefWidth="420.0" text="Continue with your account" AnchorPane.bottomAnchor="574.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="75.0">
+            <font>
+                <Font name="Al Bayan Bold" size="27.0" />
+            </font>
+        </Label>
+        <VBox layoutX="31.0" layoutY="162.0" prefHeight="257.0" prefWidth="442.0" spacing="20.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="162.0">
+            <children>
+                <HBox prefHeight="21.0" prefWidth="442.0" spacing="5.0">
+                    <children>
+                        <Label text=" Use the verification code we sent to">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="email" text="email">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label text="to log in.">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Label text="6-digit verification code">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <HBox prefHeight="100.0" prefWidth="200.0" spacing="14.0">
+                    <children>
+                        <TextField fx:id="code1" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                        <TextField fx:id="code2" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                        <TextField fx:id="code3" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                        <TextField fx:id="code4" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                        <TextField fx:id="code5" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                        <TextField fx:id="code6" prefHeight="48.0" prefWidth="94.0" styleClass="loginButton" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="90.0" prefWidth="442.0" spacing="5.0">
+                    <children>
+                        <Label text="Didn't get the code?">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resendCode" text="Resend code" underline="true">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Button fx:id="verifyCode" mnemonicParsing="false" onAction="#handleVerify" prefHeight="55.0" prefWidth="442.0" styleClass="nextButton" text="Verify Code">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

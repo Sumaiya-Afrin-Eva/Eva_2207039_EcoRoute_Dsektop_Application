@@ -1,0 +1,13 @@
+.loginButton {
+    -fx-background-color: rgba(255, 255, 255, 0.75);
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 20, 0, 0, 5);
+}
+.nextButton {
+    -fx-background-color: #5c93ff;
+    -fx-background-radius: 20;
+    -fx-padding: 10;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 20, 0, 0, 5);
+}
