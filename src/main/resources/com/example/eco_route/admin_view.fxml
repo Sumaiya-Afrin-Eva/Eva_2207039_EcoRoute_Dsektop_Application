@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" stylesheets="@admin_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="802.0" fitWidth="1404.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@FourthImage.png" />
+            </image>
+        </ImageView>
+        <HBox layoutX="104.0" layoutY="71.0" prefHeight="113.0" prefWidth="632.0" AnchorPane.bottomAnchor="687.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="768.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@logo.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </HBox.margin></ImageView>
+                <VBox prefHeight="113.0" prefWidth="522.0">
+                    <children>
+                        <Label text="Eco-Route Business Panel">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="25.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="Manage routes, pricing and travel data efficiently.">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+        <VBox layoutX="15.0" layoutY="141.0" prefHeight="410.0" prefWidth="188.0" spacing="20.0" AnchorPane.bottomAnchor="249.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="1197.0" AnchorPane.topAnchor="141.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" styleClass="sidebar-button" text="Dashboard">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="40.0" styleClass="sidebar-button" text="Add Routes">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="40.0" styleClass="sidebar-button" text="Manage Routes">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="40.0" styleClass="sidebar-button" text="Tickets">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="40.0" styleClass="sidebar-button" text="Fuel &amp; Cost Settings">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="63.0" styleClass="sidebar-button" text="Home">
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="169.0" styleClass="sidebar-button" text="Profile">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                    <VBox.margin>
+                        <Insets left="10.0" />
+                    </VBox.margin>
+                </MenuButton>
+            </children>
+        </VBox>
+        <HBox layoutX="253.0" layoutY="133.0" prefHeight="84.0" prefWidth="1086.0" spacing="30.0" AnchorPane.bottomAnchor="583.0" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="133.0">
+            <children>
+                <VBox prefHeight="84.0" prefWidth="320.0" spacing="8.0" styleClass="input-card">
+                    <children>
+                        <Label styleClass="input-title" text="Origin">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="originField" promptText="Enter origin" />
+                    </children></VBox>
+                <VBox prefHeight="200.0" prefWidth="320.0" spacing="8.0" styleClass="input-card">
+                    <children>
+                        <Label styleClass="input-title" text="Destination">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="destinationField" promptText="Enter destination" />
+                    </children></VBox>
+                <VBox prefHeight="200.0" prefWidth="320.0" spacing="8.0" styleClass="input-card">
+                    <children>
+                        <Label styleClass="input-title" text="Ticket Price (Per Person)">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="ticketField" promptText="Enter ticket price" />
+                    </children></VBox>
+            </children>
+        </HBox>
+        <HBox layoutX="253.0" layoutY="287.0" prefHeight="84.0" prefWidth="1086.0" spacing="30.0" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="245.0">
+            <children>
+                <VBox prefHeight="84.0" prefWidth="320.0" spacing="8.0" styleClass="input-card">
+                    <children>
+                        <Label styleClass="input-title" text="Fuel (Liters)">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="fuelField" promptText="e.g. 12" />
+                    </children>
+                </VBox>
+                <VBox prefHeight="84.0" prefWidth="320.0" spacing="8.0" styleClass="input-card">
+                    <children>
+                        <Label styleClass="input-title" text="Time (Hours)">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="timeField" promptText="e.g. 2.5" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <Pane layoutX="261.0" layoutY="359.0" prefHeight="210.0" prefWidth="826.0" styleClass="map-area" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="359.0" />
+        <VBox layoutX="319.0" layoutY="597.0" prefHeight="151.0" prefWidth="826.0" spacing="10.0" styleClass="summary-card" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="597.0">
+            <children>
+                <Label prefHeight="23.0" prefWidth="131.0" styleClass="summary-title" text="Route Summary">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <HBox prefHeight="76.0" prefWidth="736.0" spacing="15.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <Label text="Distance:" />
+                                <Label text="—" />
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <Label text="Fuel:" />
+                                <Label text="—" />
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <Label text="Time:" />
+                                <Label text="—" />
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <Label text="Ticket:" />
+                                <Label text="—" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <HBox layoutX="252.0" layoutY="704.0" prefHeight="75.0" prefWidth="1123.0" spacing="30.0" AnchorPane.leftAnchor="253.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" styleClass="reset-button" text="Reset">
+                    <HBox.margin>
+                        <Insets left="900.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#handleSaveRoute" prefHeight="32.0" prefWidth="98.0" styleClass="save-button" text="Save Route">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
