@@ -10,6 +10,7 @@ module com.example.eco_route {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires jakarta.mail;
 
     opens com.example.eco_route to javafx.fxml;
     exports com.example.eco_route;
