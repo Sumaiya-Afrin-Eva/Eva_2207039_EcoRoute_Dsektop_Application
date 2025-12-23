@@ -3,6 +3,7 @@ package com.example.eco_route.service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
 public class CompanyService {
 
     private static final CompanyService instance = new CompanyService();
@@ -18,7 +19,7 @@ public class CompanyService {
 
     public void addCompany(String companyName) {
         if (companyName != null && !companyName.isBlank()) {
-            currentCompany = companyName; // ✅ remember admin company
+            currentCompany = companyName;
             if (!companies.contains(companyName)) {
                 companies.add(companyName);
             }
