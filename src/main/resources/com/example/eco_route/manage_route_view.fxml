@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.eco_route.ManageRoutesController"
+            prefWidth="1000" prefHeight="650">
+
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20">
+
+        <Label text="Manage Routes"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+        <HBox spacing="10">
+            <Label text="Select Route:"/>
+            <ComboBox fx:id="routeComboBox" prefWidth="300"
+                      onAction="#loadSelectedRoute"/>
+        </HBox>
+
+        <GridPane hgap="15" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150"/>
+                <ColumnConstraints prefWidth="300"/>
+            </columnConstraints>
+
+            <Label text="Origin:" GridPane.rowIndex="0"/>
+            <TextField fx:id="originField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Destination:" GridPane.rowIndex="1"/>
+            <TextField fx:id="destinationField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Fuel (Liters):" GridPane.rowIndex="2"/>
+            <TextField fx:id="fuelField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Time (Hours):" GridPane.rowIndex="3"/>
+            <TextField fx:id="timeField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Ticket Price:" GridPane.rowIndex="4"/>
+            <TextField fx:id="ticketField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="15">
+            <Button text="Update Route" onAction="#updateRoute"/>
+            <Button text="Reset" onAction="#resetFields"/>
+            <Button text="Back" onAction="#back"/>
+        </HBox>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: green;"/>
+
+    </VBox>
+
+</AnchorPane>
