@@ -46,7 +46,7 @@
         <HBox spacing="15">
             <Button text="Update Route" onAction="#updateRoute"/>
             <Button text="Reset" onAction="#resetFields"/>
-            <Button text="Back" onAction="#back"/>
+            <Button text="Back" onAction= "#back"/>
         </HBox>
 
         <Label fx:id="statusLabel" style="-fx-text-fill: green;"/>
