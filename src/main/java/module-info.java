@@ -3,6 +3,8 @@ module com.example.eco_route {
     requires javafx.fxml;
     requires javafx.web;
 
+    requires java.sql;
+
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
@@ -10,6 +12,8 @@ module com.example.eco_route {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.base;
+    requires javafx.graphics;
     requires jakarta.mail;
 
     opens com.example.eco_route to javafx.fxml;
