@@ -58,7 +58,7 @@
                         <HBox.margin>
                             <Insets top="35.0" />
                         </HBox.margin></Label>
-                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="315.0" styleClass="login-btn" text="SIGN UP TO BE A ROUTE PARTNER">
+                    <Button fx:id="routePartnerBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="315.0" styleClass="login-btn" text="SIGN UP TO BE A ROUTE PARTNER">
                         <HBox.margin>
                             <Insets left="270.0" top="26.0" />
                         </HBox.margin>
@@ -137,7 +137,7 @@
                                     <Image url="@gasStation.png" />
                                 </image>
                             </ImageView>
-                            <Label styleClass="search-title" text="Fuel Station" />
+                            <Label styleClass="search-title" text="Gas Station" />
                         </children>
                     </HBox>
                     <Label styleClass="search-value" text="Clean Fuel" />

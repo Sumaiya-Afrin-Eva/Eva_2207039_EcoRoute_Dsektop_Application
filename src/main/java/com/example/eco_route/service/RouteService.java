@@ -1,15 +1,14 @@
 package com.example.eco_route.service;
-import com.example.eco_route.model.Route;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import com.example.eco_route.model.Route;
+import com.example.eco_route.database.RouteDAO;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RouteService {
 
     private static final RouteService instance = new RouteService();
-    private final List<Route> routes = new ArrayList<>();
+    private final RouteDAO routeDAO = RouteDAO.getInstance();
 
     private RouteService() {}
 
@@ -18,14 +17,22 @@ public class RouteService {
     }
 
     public void addRoute(Route route) {
-        routes.add(route);
+        routeDAO.addRoute(route);
     }
 
     public List<Route> getRoutes(String origin, String destination) {
-        return routes.stream()
-                .filter(r -> r.getOrigin().equalsIgnoreCase(origin)
-                        && r.getDestination().equalsIgnoreCase(destination))
-                .sorted(Comparator.comparingDouble(Route::getEcoScore).reversed())
-                .collect(Collectors.toList());
+        return routeDAO.getRoutesByOriginAndDestination(origin, destination);
+    }
+
+    public List<Route> getAllRoutes() {
+        return routeDAO.getAllRoutes();
+    }
+
+    public void updateRoute(String origin, String destination, String company, double time, double fuel, double ticket) {
+        routeDAO.updateRoute(origin, destination, company, time, fuel, ticket);
+    }
+
+    public void deleteRoute(String origin, String destination, String company) {
+        routeDAO.deleteRoute(origin, destination, company);
     }
 }

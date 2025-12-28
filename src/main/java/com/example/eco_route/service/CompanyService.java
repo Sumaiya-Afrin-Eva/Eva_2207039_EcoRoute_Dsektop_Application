@@ -3,7 +3,6 @@ package com.example.eco_route.service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
 public class CompanyService {
 
     private static final CompanyService instance = new CompanyService();
