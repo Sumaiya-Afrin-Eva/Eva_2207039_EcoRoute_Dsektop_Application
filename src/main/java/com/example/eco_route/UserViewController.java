@@ -2,6 +2,7 @@ package com.example.eco_route;
 
 import com.example.eco_route.model.Route;
 import com.example.eco_route.service.RouteService;
+import com.example.eco_route.service.PlaceService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -11,8 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,22 +25,19 @@ public class UserViewController {
     @FXML private ComboBox<String> profile;
     @FXML private ImageView profileImage;
 
-    @FXML private ImageView car;
-    @FXML private ImageView bike;
-    @FXML private ImageView bus;
-    @FXML private ImageView walk;
-
-    @FXML private TextField origin;
-    @FXML private TextField destination;
-
-    @FXML private WebView web;
+    @FXML private ComboBox<String> originCombo;
+    @FXML private ComboBox<String> destinationCombo;
 
     @FXML private VBox routesContainer;
 
     private final RouteService routeService = RouteService.getInstance();
+    private final PlaceService placeService = PlaceService.getInstance();
 
     @FXML
     public void initialize() {
+        loadOriginPlaces();
+        setupOriginComboListener();
+
         if (routesContainer != null) {
             routesContainer.setSpacing(15);
             routesContainer.setPadding(new Insets(15));
@@ -52,13 +48,37 @@ public class UserViewController {
         }
     }
 
+    private void loadOriginPlaces() {
+        List<String> places = placeService.getAllPlaces();
+        originCombo.getItems().addAll(places);
+    }
+
+    private void setupOriginComboListener() {
+        originCombo.setOnAction(e -> updateDestinationPlaces());
+    }
+
+    private void updateDestinationPlaces() {
+        String selectedOrigin = originCombo.getValue();
+
+        if (selectedOrigin == null || selectedOrigin.isEmpty()) {
+            destinationCombo.getItems().clear();
+            return;
+        }
+
+        List<String> destinations = placeService.getDestinationPlaces(selectedOrigin);
+        destinationCombo.getItems().clear();
+        destinationCombo.getItems().addAll(destinations);
+    }
+
     @FXML
     private void findRoutes() {
-        String originText = origin.getText().trim();
-        String destinationText = destination.getText().trim();
+        String originText = originCombo.getValue();
+        String destinationText = destinationCombo.getValue();
 
-        if (originText.isEmpty() || destinationText.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Input Error", "Please enter both origin and destination.");
+        if (originText == null || originText.isEmpty() ||
+                destinationText == null || destinationText.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Input Error",
+                    "Please select both origin and destination.");
             return;
         }
 
@@ -102,18 +122,19 @@ public class UserViewController {
         companyLabel.setStyle("-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0015ff;");
 
         HBox routeRow = createInfoRow("Route:",
-                route.getRoutePath() != null ? route.getRoutePath() : (route.getOrigin() + " → " + route.getDestination()));
+                route.getRoutePath() != null && !route.getRoutePath().isEmpty()
+                        ? route.getRoutePath()
+                        : (route.getOrigin() + " → " + route.getDestination()));
 
         HBox distanceRow = createInfoRow("Distance:", route.getDistance() + " km");
-
         HBox timeRow = createInfoRow("Time:", route.getTime() + " hrs");
-
         HBox fuelRow = createInfoRow("Fuel:", route.getFuel() + " L");
-
         HBox ecoRow = createInfoRow("Eco Score:", String.format("%.2f", route.getEcoScore()));
         ecoRow.setStyle("-fx-text-fill: #049029; -fx-font-weight: bold;");
-
         HBox costRow = createInfoRow("Cost:", "৳ " + route.getTicket());
+
+        Button selectButton = new Button("Select Route");
+        selectButton.setStyle("-fx-padding: 10; -fx-font-size: 14;");
 
         card.getChildren().addAll(
                 companyLabel,
@@ -122,8 +143,10 @@ public class UserViewController {
                 timeRow,
                 fuelRow,
                 ecoRow,
-                costRow
+                costRow,
+                selectButton
         );
+
         return card;
     }
 
@@ -156,6 +179,24 @@ public class UserViewController {
         alert.showAndWait();
     }
 
+    @FXML
+    private void viewHistory() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("history_view.fxml")
+            );
+
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) history.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "Unable to load history view.");
+        }
+    }
 
     @FXML
     private void goHome() {
