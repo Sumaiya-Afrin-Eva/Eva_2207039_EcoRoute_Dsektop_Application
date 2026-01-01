@@ -1,5 +1,8 @@
 package com.example.eco_route;
 
+import com.example.eco_route.database.RouteDAO;
+import com.example.eco_route.model.Route;
+import com.example.eco_route.service.CompanyService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,113 +10,108 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class ManageRoutesController {
 
-    @FXML
-    private ComboBox<String> routeComboBox;
+    @FXML private ComboBox<String> routeComboBox;
+    @FXML private TextField originField;
+    @FXML private TextField destinationField;
+    @FXML private TextField fuelField;
+    @FXML private TextField timeField;
+    @FXML private TextField ticketField;
 
-    @FXML
-    private TextField originField, destinationField, fuelField, timeField, ticketField;
-
-    @FXML
-    private Label statusLabel;
-    @FXML private Button back;
-
-    private Map<String, Route> routeMap = new HashMap<>();
+    private final RouteDAO routeDAO = RouteDAO.getInstance();
+    private final CompanyService companyService = CompanyService.getInstance();
+    private List<Route> allRoutes;
 
     @FXML
     public void initialize() {
+        loadRoutesIntoComboBox();
+    }
 
-        if (back != null) {
-            back.setOnAction(e -> back());
+    private void loadRoutesIntoComboBox() {
+        allRoutes = routeDAO.getAllRoutes();
+        routeComboBox.getItems().clear();
+
+        for (Route route : allRoutes) {
+            String displayText = route.getOrigin() + " → " + route.getDestination() + " (" + route.getCompany() + ")";
+            routeComboBox.getItems().add(displayText);
         }
-
-        routeMap.put("Dhaka → Khulna", new Route("Dhaka", "Khulna", 12, 2.5, 500));
-        routeMap.put("Dhaka → Chittagong", new Route("Dhaka", "Chittagong", 15, 3.2, 700));
-
-        routeComboBox.getItems().addAll(routeMap.keySet());
     }
 
     @FXML
-    private void loadSelectedRoute() {
-        String key = routeComboBox.getValue();
-        if (key == null) return;
-
-        Route r = routeMap.get(key);
-
-        originField.setText(r.origin);
-        destinationField.setText(r.destination);
-        fuelField.setText(String.valueOf(r.fuel));
-        timeField.setText(String.valueOf(r.time));
-        ticketField.setText(String.valueOf(r.ticket));
+    public void loadSelectedRoute() {
+        int selectedIndex = routeComboBox.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0 && selectedIndex < allRoutes.size()) {
+            Route route = allRoutes.get(selectedIndex);
+            originField.setText(route.getOrigin());
+            destinationField.setText(route.getDestination());
+            fuelField.setText(String.valueOf(route.getFuel()));
+            timeField.setText(String.valueOf(route.getTime()));
+            ticketField.setText(String.valueOf(route.getTicket()));
+        }
     }
 
     @FXML
-    private void updateRoute() {
-        String key = routeComboBox.getValue();
-        if (key == null) {
-            statusLabel.setText("Please select a route first.");
-            return;
-        }
-
+    public void updateRoute() {
         try {
-            Route updated = new Route(
-                    originField.getText(),
-                    destinationField.getText(),
-                    Double.parseDouble(fuelField.getText()),
-                    Double.parseDouble(timeField.getText()),
-                    Double.parseDouble(ticketField.getText())
-            );
+            int selectedIndex = routeComboBox.getSelectionModel().getSelectedIndex();
+            if (selectedIndex < 0) {
+                showAlert(Alert.AlertType.WARNING, "Selection Error", "Please select a route first.");
+                return;
+            }
 
-            routeMap.put(key, updated);
-            statusLabel.setText("Route updated successfully!");
+            Route route = allRoutes.get(selectedIndex);
+            double time = Double.parseDouble(timeField.getText().trim());
+            double fuel = Double.parseDouble(fuelField.getText().trim());
+            double ticket = Double.parseDouble(ticketField.getText().trim());
+
+            routeDAO.updateRoute(route.getOrigin(), route.getDestination(), route.getCompany(), time, fuel, ticket);
+
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Route updated successfully!");
+            loadRoutesIntoComboBox();
+            resetFields();
 
         } catch (NumberFormatException e) {
-            statusLabel.setText("Invalid numeric input!");
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Please enter valid numbers for Fuel, Time, and Ticket.");
         }
     }
 
     @FXML
-    private void resetFields() {
+    public void resetFields() {
         originField.clear();
         destinationField.clear();
         fuelField.clear();
         timeField.clear();
         ticketField.clear();
-        statusLabel.setText("");
+        routeComboBox.getSelectionModel().clearSelection();
     }
 
-    static class Route {
-        String origin, destination;
-        double fuel, time, ticket;
-
-        Route(String origin, String destination, double fuel, double time, double ticket) {
-            this.origin = origin;
-            this.destination = destination;
-            this.fuel = fuel;
-            this.time = time;
-            this.ticket = ticket;
-        }
-    }
-
-    private void back() {
+    @FXML
+    public void back() {
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("admin_view.fxml")
             );
 
             Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) back.getScene().getWindow();
+            Stage stage = (Stage) routeComboBox.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Unable to load home view.").show();
+            showAlert(Alert.AlertType.ERROR, "Error", "Unable to load admin view.");
         }
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

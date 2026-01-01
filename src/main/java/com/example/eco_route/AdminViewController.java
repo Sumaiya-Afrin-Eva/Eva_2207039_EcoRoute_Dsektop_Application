@@ -124,10 +124,6 @@ public class AdminViewController {
     private void displaySelectedPlaces() {
         selectedPlacesBox.getChildren().clear();
 
-        //Label headerLabel = new Label("Selected Route:");
-        //headerLabel.setStyle("-fx-font-weight: bold;");
-        //selectedPlacesBox.getChildren().add(headerLabel);
-
         if (selectedPlaces.isEmpty()) {
             return;
         }
@@ -304,7 +300,7 @@ public class AdminViewController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Unable to load home view.").show();
+            new Alert(Alert.AlertType.ERROR, "Unable to load manage route view.").show();
         }
     }
 }
