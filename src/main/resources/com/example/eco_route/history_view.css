@@ -19,7 +19,7 @@
 #backButton {
     -fx-font-weight: bold;
     -fx-padding: 10;
-    -fx-font-size: 28;
+    -fx-font-size: 18;
     -fx-background-color: #d32f2f;
     -fx-text-fill: white;
     -fx-cursor: hand;

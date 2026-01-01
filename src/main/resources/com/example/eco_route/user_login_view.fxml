@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: white;" stylesheets="@user_login_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eco_route.UserLoginViewController">
     <children>
-        <ImageView fx:id="backHome" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
+        <ImageView fx:id="back" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
             <image>
                 <Image url="@back_arrow.png" />
             </image>
@@ -77,22 +77,22 @@
                 </Button>
             </children>
         </VBox>
-        <Label layoutX="33.0" layoutY="418.0" prefHeight="120.0" prefWidth="277.0" text="By continuing, you have read and agree to our " AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="150.0">
+        <Label layoutX="33.0" layoutY="335.0" prefHeight="25.0" prefWidth="277.0" text="By continuing, you have read and agree to our " AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="335.0">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="294.0" layoutY="470.0" prefHeight="26.0" prefWidth="105.0" text="Terms of Service " textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="150.0">
+        <Label layoutX="294.0" layoutY="468.0" prefHeight="25.0" prefWidth="123.0" text="Terms of Service " textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="335.0">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="391.0" layoutY="470.0" prefHeight="20.0" prefWidth="25.0" text="and" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="150.0">
+        <Label layoutX="391.0" layoutY="506.0" prefHeight="18.0" prefWidth="25.0" text="and" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="335.0">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="104.0" layoutY="492.0" prefHeight="26.0" prefWidth="112.0" text="Privacy Policy." textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="170.0">
+        <Label layoutX="32.0" layoutY="357.0" prefHeight="18.0" prefWidth="116.0" text="Privacy Policy." textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="351.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="357.0">
             <font>
                 <Font size="14.0" />
             </font>
