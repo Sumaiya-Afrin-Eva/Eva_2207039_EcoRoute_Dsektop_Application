@@ -22,7 +22,7 @@
                             </children>
                         </HBox>
 
-                        <Button fx:id="backButton" onAction="#goBack" prefHeight="38.0" prefWidth="79.0" style="-fx-padding: 10; -fx-font-size: 14;" text="Back" />
+                        <Button fx:id="backButton" onAction="#goBack" prefHeight="38.0" prefWidth="79.0" text="Back" />
 
                         <ScrollPane fitToWidth="true" prefHeight="700.0">
                             <content>

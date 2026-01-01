@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="500.0" styleClass="loginButton" stylesheets="@code_verification_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="500.0" styleClass="loginButton" stylesheets="@code_verification_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eco_route.CodeVerificationViewController">
     <children>
         <ImageView fx:id="backHome" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
             <image>

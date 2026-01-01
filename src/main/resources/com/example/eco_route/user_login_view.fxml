@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="500.0" stylesheets="@user_login_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: white;" stylesheets="@user_login_view.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eco_route.UserLoginViewController">
     <children>
-        <ImageView fx:id="back" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
+        <ImageView fx:id="backHome" fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" styleClass="back_arrow" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="476.0" AnchorPane.topAnchor="5.0">
             <image>
                 <Image url="@back_arrow.png" />
             </image>
@@ -65,77 +65,34 @@
                 <Font name="Brush Script MT Italic" size="21.0" />
             </font>
         </Label>
-        <VBox layoutY="204.0" prefHeight="417.0" prefWidth="506.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="204.0">
+        <VBox layoutY="224.0" prefHeight="107.0" prefWidth="506.0" spacing="8.0" AnchorPane.bottomAnchor="411.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="224.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="440.0" styleClass="loginButton" text="Continue with email">
+                <Button fx:id="emailButton" mnemonicParsing="false" prefHeight="44.0" prefWidth="440.0" styleClass="loginButton" text="Continue with email">
                     <VBox.margin>
                         <Insets left="32.0" top="20.0" />
                     </VBox.margin>
-                    <font>
-                        <Font name="Al Bayan Bold" size="15.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="440.0" styleClass="loginButton" text="Facebook">
-                    <VBox.margin>
-                        <Insets left="32.0" top="20.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@facebook_logo.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <font>
-                        <Font name="Al Bayan Bold" size="15.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="440.0" styleClass="loginButton" text="Google">
-                    <VBox.margin>
-                        <Insets left="32.0" top="20.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@google_logo.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <font>
-                        <Font name="Al Bayan Bold" size="15.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="440.0" styleClass="loginButton" text="Apple">
-                    <VBox.margin>
-                        <Insets left="32.0" top="20.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@apple_logo.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
                     <font>
                         <Font name="Al Bayan Bold" size="15.0" />
                     </font>
                 </Button>
             </children>
         </VBox>
-        <Label layoutX="33.0" layoutY="471.0" prefHeight="20.0" prefWidth="277.0" text="By continuing, you have read and agree to our " AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="520.0">
+        <Label layoutX="33.0" layoutY="418.0" prefHeight="120.0" prefWidth="277.0" text="By continuing, you have read and agree to our " AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="150.0">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="294.0" layoutY="470.0" prefHeight="26.0" prefWidth="105.0" text="Terms of Service " textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="520.0">
+        <Label layoutX="294.0" layoutY="470.0" prefHeight="26.0" prefWidth="105.0" text="Terms of Service " textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="150.0">
             <font>
                 <Font size="14.0" />
-            </font></Label>
-        <Label layoutX="391.0" layoutY="470.0" prefHeight="20.0" prefWidth="25.0" text="and" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="520.0">
+            </font>
+        </Label>
+        <Label layoutX="391.0" layoutY="470.0" prefHeight="20.0" prefWidth="25.0" text="and" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="150.0">
             <font>
                 <Font size="14.0" />
-            </font></Label>
-        <Label layoutX="104.0" layoutY="492.0" prefHeight="26.0" prefWidth="112.0" text="Privacy Policy." textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="540.0">
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="492.0" prefHeight="26.0" prefWidth="112.0" text="Privacy Policy." textFill="#024ae4" underline="true" AnchorPane.bottomAnchor="182.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="170.0">
             <font>
                 <Font size="14.0" />
             </font>
