@@ -12,21 +12,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2500.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eco_route.UserViewController">
-
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1150.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eco_route.UserViewController">
     <content>
-        <AnchorPane prefHeight="2500.0" prefWidth="1400.0" stylesheets="@user_view.css">
-
+        <AnchorPane prefHeight="1150.0" prefWidth="1400.0" stylesheets="@user_view.css">
             <children>
 
-                <VBox layoutX="89.0" layoutY="373.0" prefHeight="368.0" prefWidth="186.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="373.0">
+                <VBox layoutX="89.0" layoutY="373.0" prefHeight="368.0" prefWidth="186.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="300.0">
 
                     <children>
-                        <Button fx:id="info" mnemonicParsing="false" prefHeight="42.0" prefWidth="186.0" styleClass="sidebar-button" text="Info">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Button>
 
                         <Button fx:id="home" mnemonicParsing="false" onAction="#goHome" prefHeight="42.0" prefWidth="186.0" styleClass="sidebar-button" text="Home">
                             <VBox.margin>
@@ -45,34 +38,26 @@
                                 <Font size="20.0" />
                             </font>
                         </Button>
-
-                        <ComboBox fx:id="profile" prefHeight="42.0" prefWidth="186.0" promptText="Profile" styleClass="sidebar-button" visibleRowCount="20">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </ComboBox>
                     </children>
                 </VBox>
 
-                <ImageView fx:id="profileImage" fitHeight="190.0" fitWidth="183.0" layoutX="99.0" layoutY="90.0" preserveRatio="true" AnchorPane.leftAnchor="98.0" AnchorPane.topAnchor="90.0" />
-
-                <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="296.0" layoutY="91.0" preserveRatio="true" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="91.0">
+                <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="296.0" layoutY="91.0" preserveRatio="true" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="91.0">
                     <image>
                         <Image url="@logo.png" />
                     </image>
                 </ImageView>
 
-                <Label layoutX="366.0" layoutY="100.0" prefHeight="37.0" prefWidth="192.0" text="Eco-Route" textFill="#2323ff" AnchorPane.leftAnchor="385.0" AnchorPane.topAnchor="105.0">
+                <Label layoutX="366.0" layoutY="100.0" prefHeight="37.0" prefWidth="192.0" text="Eco-Route" textFill="#2323ff" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="105.0">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
 
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="1900.0" layoutX="298.0" layoutY="311.0" width="5.0" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="311.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="1900.0" layoutX="298.0" layoutY="311.0" width="5.0" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="270.0" />
 
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="5.0" layoutX="379.0" layoutY="311.0" width="1000.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="310.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#049029" height="5.0" layoutX="379.0" layoutY="311.0" width="1000.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="270.0" />
 
-                <VBox layoutX="300.0" layoutY="162.0" prefHeight="110.0" prefWidth="554.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="162.0">
+                <VBox layoutX="300.0" layoutY="162.0" prefHeight="70.0" prefWidth="1001.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="162.0">
 
                     <children>
                         <Label text="Welcome to Eco-Route Planner!" textFill="#7b15ff">
@@ -81,13 +66,13 @@
                             </font>
                         </Label>
 
-                        <Label text="You are one step away from discovering">
+                        <Label prefHeight="30.0" prefWidth="958.0" text="You are one step away from discovering your best route.">
                             <font>
                                 <Font size="25.0" />
                             </font>
                         </Label>
 
-                        <Label text="your best route.">
+                        <Label>
                             <font>
                                 <Font size="25.0" />
                             </font>
@@ -95,7 +80,7 @@
                     </children>
                 </VBox>
 
-                <VBox layoutX="364.0" layoutY="376.0" prefHeight="360.0" prefWidth="716.0" spacing="15" styleClass="content-area" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="376.0">
+                <VBox layoutX="364.0" layoutY="376.0" prefHeight="360.0" prefWidth="716.0" spacing="15" styleClass="content-area" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="300.0">
 
                     <children>
 
@@ -129,15 +114,13 @@
                     </children>
                 </VBox>
 
-                <ScrollPane fitToWidth="true" layoutY="820.0" prefHeight="1560.0" prefWidth="835.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="820.0">
+                <ScrollPane fitToWidth="true" layoutY="701.0" prefHeight="404.0" prefWidth="835.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="701.0">
 
                     <content>
-                        <VBox fx:id="routesContainer" prefWidth="850.0" spacing="15" style="-fx-padding: 15;">
+                        <VBox fx:id="routesContainer" prefHeight="0.0" prefWidth="833.0" spacing="15" style="-fx-padding: 15;">
                         </VBox>
                     </content>
                 </ScrollPane>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d7175" height="1.0" layoutX="46.0" layoutY="59.0" stroke="BLACK" strokeType="INSIDE" width="30.0" AnchorPane.leftAnchor="178.0" AnchorPane.topAnchor="185.0" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d7175" height="30.0" layoutX="72.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="1.0" AnchorPane.leftAnchor="191.0" AnchorPane.topAnchor="170.0" />
 
             </children>
         </AnchorPane>
