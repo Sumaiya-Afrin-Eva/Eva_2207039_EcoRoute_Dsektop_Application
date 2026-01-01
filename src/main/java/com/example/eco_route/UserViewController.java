@@ -1,8 +1,10 @@
 package com.example.eco_route;
 
+import com.example.eco_route.database.SearchHistoryDAO;
 import com.example.eco_route.model.Route;
 import com.example.eco_route.service.RouteService;
 import com.example.eco_route.service.PlaceService;
+import com.example.eco_route.service.UserSessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -135,6 +137,7 @@ public class UserViewController {
 
         Button selectButton = new Button("Select Route");
         selectButton.setStyle("-fx-padding: 10; -fx-font-size: 14;");
+        selectButton.setOnAction(e -> recordSearchHistory(route));
 
         card.getChildren().addAll(
                 companyLabel,
@@ -163,6 +166,27 @@ public class UserViewController {
 
         row.getChildren().addAll(labelText, valueText);
         return row;
+    }
+
+    private void recordSearchHistory(Route route) {
+        String userId = UserSessionManager.getInstance().getCurrentUserId();
+        if (userId == null || userId.isEmpty()) {
+            userId = "user1";
+        }
+
+        SearchHistoryDAO.getInstance().addSearchHistory(
+                userId,
+                route.getOrigin(),
+                route.getDestination(),
+                route.getCompany(),
+                route.getDistance(),
+                route.getTime(),
+                route.getFuel(),
+                route.getTicket(),
+                route.getEcoScore()
+        );
+
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Route selected and saved to history!");
     }
 
     private void clearResults() {
