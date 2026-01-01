@@ -1,5 +1,6 @@
 package com.example.eco_route;
 
+import com.example.eco_route.service.UserSessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,6 +44,7 @@ public class CodeVerificationViewController {
     private Button verifyCode;
 
     private String sentCode;
+    private String userEmail;
 
     private HomeController homeController;
 
@@ -50,8 +52,9 @@ public class CodeVerificationViewController {
         this.homeController = controller;
     }
 
-    public void setData(String userEmail, String verificationCode) {
-        email.setText(userEmail);
+    public void setData(String userEmailAddress, String verificationCode) {
+        userEmail = userEmailAddress;
+        email.setText(userEmailAddress);
         this.sentCode = verificationCode;
     }
 
@@ -74,9 +77,12 @@ public class CodeVerificationViewController {
                         code3.getText() +
                         code4.getText() +
                         code5.getText() +
-                        code6.getText() ;
+                        code6.getText();
 
         if (enteredCode.equals(sentCode)) {
+            UserSessionManager.getInstance().setCurrentUserEmail(userEmail);
+            UserSessionManager.getInstance().setCurrentUserId(userEmail);
+
             openUserView();
         } else {
             showAlert(Alert.AlertType.ERROR,

@@ -4,6 +4,7 @@ public class UserSessionManager {
 
     private static final UserSessionManager instance = new UserSessionManager();
     private String currentUserId;
+    private String currentUserEmail;
 
     private UserSessionManager() {}
 
@@ -17,5 +18,18 @@ public class UserSessionManager {
 
     public String getCurrentUserId() {
         return currentUserId;
+    }
+
+    public void setCurrentUserEmail(String email) {
+        this.currentUserEmail = email;
+    }
+
+    public String getCurrentUserEmail() {
+        return currentUserEmail;
+    }
+
+    public void logout() {
+        this.currentUserId = null;
+        this.currentUserEmail = null;
     }
 }

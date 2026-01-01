@@ -163,7 +163,6 @@ public class EmailLoginViewController {
         }
     }
 
-
     private void showAlert(Alert.AlertType type, String title, String msg) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

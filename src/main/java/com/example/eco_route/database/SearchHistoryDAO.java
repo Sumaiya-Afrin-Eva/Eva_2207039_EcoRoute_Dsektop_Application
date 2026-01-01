@@ -14,7 +14,7 @@ public class SearchHistoryDAO {
         return instance;
     }
 
-    public void addSearchHistory(String userId, String origin, String destination,
+    public void addSearchHistory(String userEmail, String origin, String destination,
                                  String selectedCompany, double distance, double time,
                                  double fuel, double ticket, double ecoScore) {
         String sql = "INSERT INTO search_history (userId, origin, destination, selectedCompany, distance, time, fuel, ticket, ecoScore) " +
@@ -23,7 +23,7 @@ public class SearchHistoryDAO {
         try (Connection conn = DatabaseManager.getInstance().getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, userId);
+            pstmt.setString(1, userEmail);
             pstmt.setString(2, origin);
             pstmt.setString(3, destination);
             pstmt.setString(4, selectedCompany);
@@ -34,7 +34,7 @@ public class SearchHistoryDAO {
             pstmt.setDouble(9, ecoScore);
 
             pstmt.executeUpdate();
-            System.out.println("Search history recorded!");
+            System.out.println("Search history recorded for user: " + userEmail);
 
         } catch (SQLException e) {
             System.err.println("Error recording search history: " + e.getMessage());
@@ -42,19 +42,20 @@ public class SearchHistoryDAO {
         }
     }
 
-    public List<SearchHistoryRecord> getUserSearchHistory(String userId) {
+    public List<SearchHistoryRecord> getUserSearchHistory(String userEmail) {
         List<SearchHistoryRecord> history = new ArrayList<>();
         String sql = "SELECT * FROM search_history WHERE userId = ? ORDER BY searchedAt DESC";
 
         try (Connection conn = DatabaseManager.getInstance().getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, userId);
+            pstmt.setString(1, userEmail);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 SearchHistoryRecord record = new SearchHistoryRecord(
                         rs.getInt("id"),
+                        rs.getString("userId"),
                         rs.getString("origin"),
                         rs.getString("destination"),
                         rs.getString("selectedCompany"),
@@ -76,8 +77,45 @@ public class SearchHistoryDAO {
         return history;
     }
 
+    public void deleteSearchHistory(int historyId) {
+        String sql = "DELETE FROM search_history WHERE id = ?";
+
+        try (Connection conn = DatabaseManager.getInstance().getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, historyId);
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                System.out.println("Search history record deleted successfully!");
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error deleting search history: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAllUserHistory(String userEmail) {
+        String sql = "DELETE FROM search_history WHERE userId = ?";
+
+        try (Connection conn = DatabaseManager.getInstance().getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, userEmail);
+            int affectedRows = pstmt.executeUpdate();
+
+            System.out.println("Deleted " + affectedRows + " history records for user: " + userEmail);
+
+        } catch (SQLException e) {
+            System.err.println("Error deleting user history: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public static class SearchHistoryRecord {
         public int id;
+        public String userEmail;
         public String origin;
         public String destination;
         public String selectedCompany;
@@ -88,9 +126,10 @@ public class SearchHistoryDAO {
         public double ecoScore;
         public Timestamp searchedAt;
 
-        public SearchHistoryRecord(int id, String origin, String destination, String selectedCompany,
+        public SearchHistoryRecord(int id, String userEmail, String origin, String destination, String selectedCompany,
                                    double distance, double time, double fuel, double ticket, double ecoScore, Timestamp searchedAt) {
             this.id = id;
+            this.userEmail = userEmail;
             this.origin = origin;
             this.destination = destination;
             this.selectedCompany = selectedCompany;
